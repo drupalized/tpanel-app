@@ -1,0 +1,21 @@
+.App__header {
+  .menu {
+    border-radius: 0;
+
+    .item {
+      &:before {
+        content: none;
+      }
+
+      &.header {
+        img {
+          margin-right: 1.2em;
+        }
+      }
+    }
+  }
+
+  &-signup {
+    margin-left: .5em !important;
+  }
+}

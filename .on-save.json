@@ -1,0 +1,14 @@
+[
+  {
+    "srcDir": "src",
+    "destDir": "src/styles",
+    "files": "components/**/*.js",
+    "command": "touch ${srcFile} ${destFileWithoutExtension}.scss"
+  },
+  {
+    "srcDir": "src",
+    "destDir": "src/styles",
+    "files": "pages/**/*.js",
+    "command": "touch ${srcFile} ${destFileWithoutExtension}.scss"
+  }
+]

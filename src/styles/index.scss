@@ -5,6 +5,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #f7f7f7;
+
+  .ui.container,
+  .ui.grid.container {
+    @media screen and (max-width: 1199px) {
+      width: 100% !important;
+    }
+  }
 }
 
 code {
