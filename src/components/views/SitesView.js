@@ -7,6 +7,10 @@ import striptags from 'striptags';
 import { connect } from 'react-redux';
 
 class SitesView extends Component {
+  test = () => {
+    console.log('test');
+  }
+
   render() {
     const { sites } = this.props;
 
@@ -19,10 +23,10 @@ class SitesView extends Component {
     }
 
     return (
-      <Card.Group itemsPerRow={ 3 } stackable>
+      <Card.Group itemsPerRow={ 4 } stackable>
         { sites.length !== 0 && sites.map((site, index) => {
           return (
-            <Card color="pink" key={ site.uuid[0] }>
+            <Card color="pink" key={ site.uuid[0] } onClick={ this.test } as="div">
               <Image src="http://fpoimg.com/800x800?text=Tipickly&bg_color=ffffff&text_color=ffebfb" wrapped ui={false} />
               <Card.Content>
                 <Card.Header>{ site.name[0].value }</Card.Header>

@@ -1,5 +1,10 @@
 .App {
-  &__container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 
+  &__container {
+    flex: 1 0 auto;
+    margin-top: 1rem !important;
   }
 }

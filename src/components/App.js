@@ -5,7 +5,7 @@ import { Segment } from 'semantic-ui-react';
 
 // Custom components.
 import Header from './global/Header';
-import Search from './global/Search';
+import Footer from './global/Footer';
 
 // Pages.
 import Home from '../pages/home/Home';
@@ -33,11 +33,13 @@ class App extends Component {
       <div className="App">
         <Header />
         <Segment className="App__container" vertical>
-          <Search />
           <Switch>
             <Route path={ HOME } exact component={ Home } />
             <Route path={ LOGIN } exact component={ Login } />
           </Switch>
+        </Segment>
+        <Segment className="App__footer" vertical>
+          <Footer />
         </Segment>
       </div>
     );

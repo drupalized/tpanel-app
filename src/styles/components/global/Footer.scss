@@ -1,0 +1,39 @@
+.App__footer {
+  background: #1B1C1D !important;
+  color: white;
+  padding: 3rem 0 !important;
+
+  h4 {
+    text-transform: uppercase;
+  }
+
+  a {
+    color: white !important;
+    opacity: 0.55;
+    transition: all .2s !important;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .link {
+    .item {
+      opacity: 0.55;
+
+      &.active {
+        opacity: 1;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &-disclaimer {
+    a {
+      display: inline-block;
+    }
+  }
+}

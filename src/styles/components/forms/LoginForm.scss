@@ -1,0 +1,9 @@
+@import '../../palette.scss';
+
+.Login-form {
+  background: white;
+  padding: 5rem;
+  border-radius: 5px;
+  border-right: 2px solid $lightShaddow;
+  border-bottom: 2px solid $lightShaddow;
+}
