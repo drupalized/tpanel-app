@@ -6,9 +6,15 @@ import striptags from 'striptags';
 // Redux.
 import { connect } from 'react-redux';
 
+// History.
+import history from '../../config/history';
+
+// Config.
+import { SITES } from '../../config/paths';
+
 class SitesView extends Component {
-  test = () => {
-    console.log('test');
+  goToSitePage = siteId => {
+    history.push( `${ SITES }/${ siteId }#info` );
   }
 
   render() {
@@ -26,7 +32,7 @@ class SitesView extends Component {
       <Card.Group itemsPerRow={ 4 } stackable>
         { sites.length !== 0 && sites.map((site, index) => {
           return (
-            <Card color="pink" key={ site.uuid[0] } onClick={ this.test } as="div">
+            <Card color="pink" key={ site.uuid[0].value } onClick={ () => this.goToSitePage(site.uuid[0].value) } as="div">
               <Image src="http://fpoimg.com/800x800?text=Tipickly&bg_color=ffffff&text_color=ffebfb" wrapped ui={false} />
               <Card.Content>
                 <Card.Header>{ site.name[0].value }</Card.Header>

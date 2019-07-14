@@ -17,10 +17,10 @@ class Login extends Component {
     return (
       <Grid className="Login" container stackable>
         <Grid.Row>
-          <Grid.Column width={ 12 }>
+          <Grid.Column computer={ 10 } tablet={ 16 }>
             <LoginForm />
           </Grid.Column>
-          <Grid.Column className="Login-register" width={ 4 }>
+          <Grid.Column className="Login-register" computer={ 6 } tablet={ 16 }>
             <h2>Not yet registered?</h2>
             <p>Register now to start creating new websites. It's simple, easy and intuitive!</p>
             <p>The registration is quick and free!</p>

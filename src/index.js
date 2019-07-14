@@ -1,28 +1,39 @@
 // Global components.
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom'
 
 // The app.
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
 // Redux.
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from "redux-thunk";
-import reducer from './reducers';
+import { ConnectedRouter, routerMiddleware } from 'connected-react-router';
+import { createRootReducer } from './reducers';
+
+// History.
+import history from './config/history';
 
 // Styles.
 import './styles/index.scss';
 
-const store = createStore(reducer, applyMiddleware(thunk));
+const store = createStore(
+  createRootReducer(history),
+  compose(
+    applyMiddleware(
+      thunk,
+      routerMiddleware(history)
+    )
+  )
+);
 
 ReactDOM.render(
   <Provider store={ store }>
-    <BrowserRouter>
+    <ConnectedRouter history={ history }>
       <App />
-    </BrowserRouter>
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
 );

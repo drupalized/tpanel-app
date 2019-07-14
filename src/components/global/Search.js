@@ -8,7 +8,7 @@ import '../../styles/components/global/Search.scss'
 class Search extends Component {
   render() {
     return (
-      <Form className="Search" container stackable>
+      <Form className="Search">
         <Form.Field>
           <Input
             fluid
