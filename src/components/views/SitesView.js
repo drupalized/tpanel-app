@@ -10,11 +10,11 @@ import { connect } from 'react-redux';
 import history from '../../config/history';
 
 // Config.
-import { SITES } from '../../config/paths';
+import { SITE } from '../../config/paths';
 
 class SitesView extends Component {
   goToSitePage = siteId => {
-    history.push( `${ SITES }/${ siteId }#info` );
+    history.push( `${ SITE }/${ siteId }#info` );
   }
 
   render() {
@@ -31,9 +31,10 @@ class SitesView extends Component {
     return (
       <Card.Group itemsPerRow={ 4 } stackable>
         { sites.length !== 0 && sites.map((site, index) => {
+          console.log(site);
           return (
             <Card color="pink" key={ site.uuid[0].value } onClick={ () => this.goToSitePage(site.uuid[0].value) } as="div">
-              <Image src="http://fpoimg.com/800x800?text=Tipickly&bg_color=ffffff&text_color=ffebfb" wrapped ui={false} />
+              <Image src={ site.field_site_image[0].url } wrapped ui={false} />
               <Card.Content>
                 <Card.Header>{ site.name[0].value }</Card.Header>
                 <Card.Meta>

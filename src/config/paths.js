@@ -1,3 +1,3 @@
 export const HOME = '/';
 export const LOGIN = '/login';
-export const SITES = '/sites';
+export const SITE = '/site';

@@ -10,14 +10,14 @@ import Footer from './global/Footer';
 // Pages.
 import Home from '../pages/home/Home';
 import Login from '../pages/login/Login';
-import Sites from '../pages/sites/Sites';
+import Site from '../pages/site/Site';
 
 // Redux.
 import { connect } from 'react-redux';
 import { getSitesList } from '../actions/sitesActions';
 
 // URL paths.
-import { HOME, LOGIN, SITES } from '../config/paths';
+import { HOME, LOGIN, SITE } from '../config/paths';
 
 // Styles.
 import '../styles/components/App.scss';
@@ -37,7 +37,7 @@ class App extends Component {
           <Switch>
             <Route path={ HOME } exact component={ Home } />
             <Route path={ LOGIN } exact component={ Login } />
-            <Route path={ `${ SITES }/:siteId` } component={ Sites } />
+            <Route path={ `${ SITE }/:siteId` } component={ Site } />
           </Switch>
         </Segment>
         <Segment className="App__footer" vertical>
