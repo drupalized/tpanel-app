@@ -1,9 +1,9 @@
 import { CHANGE_ACTIVE_MENU_ITEM } from '../actions/menuActions';
 
 /* Left Menu */
-const initialActiveMenuItem = 'info';
+const initialState = { value: 'info' };
 
-export const activeMenuItem = (state = initialActiveMenuItem, action) => {
+export const activeMenuItem = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_ACTIVE_MENU_ITEM:
       return {

@@ -26,7 +26,6 @@ class LeftMenu extends Component {
 
   render() {
     const { activeMenuItem } = this.props;
-    console.log(activeMenuItem);
 
     return (
       <Menu color="pink" fluid pointing secondary vertical>
@@ -64,7 +63,7 @@ class LeftMenu extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  activeMenuItem: state.activeMenuItem,
+  activeMenuItem: state.activeMenuItem.value,
 });
 
 const mapDispatchToProps = dispatch => ({
