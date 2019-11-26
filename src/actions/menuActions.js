@@ -5,4 +5,4 @@ export const changeActiveMenuItem = activeMenuItem => {
     type: CHANGE_ACTIVE_MENU_ITEM,
     activeMenuItem,
   }
-}
+};

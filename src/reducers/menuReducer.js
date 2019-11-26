@@ -1,3 +1,4 @@
+// Constants.
 import { CHANGE_ACTIVE_MENU_ITEM } from '../actions/menuActions';
 
 /* Left Menu */

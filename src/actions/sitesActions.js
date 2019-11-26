@@ -3,7 +3,9 @@ import axios from 'axios';
 export const GET_SITES = 'GET_SITES';
 export const GET_SITES_SUCCESS = 'GET_SITES_SUCCESS';
 export const GET_SITES_ERROR = 'GET_SITES_ERROR';
+export const UPDATE_SITE_ID = 'UPDATE_SITE_ID';
 
+/* Sites List */
 export const getSitesList = () => {
   return dispatch => {
     dispatch(getSites());
@@ -38,5 +40,13 @@ export const getSitesError = error => {
   return {
     type: GET_SITES_ERROR,
     data: { error }
+  }
+};
+
+/* Site ID */
+export const updateSiteId = siteId => {
+  return {
+    type: UPDATE_SITE_ID,
+    siteId,
   }
 };

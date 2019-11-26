@@ -1,24 +1,19 @@
 // Global components.
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Card, Icon, Image } from 'semantic-ui-react';
 import striptags from 'striptags';
 
 // Redux.
 import { connect } from 'react-redux';
-
-// History.
-import history from '../../config/history';
+import { updateSiteId } from '../../actions/sitesActions';
 
 // Config.
 import { SITE } from '../../config/paths';
 
 class SitesView extends Component {
-  goToSitePage = siteId => {
-    history.push( `${ SITE }/${ siteId }#info` );
-  }
-
   render() {
-    const { sites } = this.props;
+    const { sites, updateSiteId } = this.props;
 
     if (sites.length === 0) {
       return (
@@ -29,26 +24,31 @@ class SitesView extends Component {
     }
 
     return (
-      <Card.Group itemsPerRow={ 4 } stackable>
+      <Card.Group itemsPerRow={ 4 } stackable doubling>
         { sites.length !== 0 && sites.map((site, index) => {
-          console.log(site);
           return (
-            <Card color="pink" key={ site.uuid[0].value } onClick={ () => this.goToSitePage(site.uuid[0].value) } as="div">
+            <Card
+              key={ site.uuid[0].value }
+              as={ Link }
+              to={ `${ SITE }/${ site.uuid[0].value }#info` }
+              color="pink"
+              onClick={ () => updateSiteId(site.uuid[0].value) }
+            >
               <Image src={ site.field_site_image[0].url } wrapped ui={false} />
               <Card.Content>
                 <Card.Header>{ site.name[0].value }</Card.Header>
                 <Card.Meta>
-                  <span>Trial expires at xx-xx-xxxx</span>
+                  <span>Trial expires on xx-xx-xxxx</span>
                 </Card.Meta>
                 <Card.Description>
                   { striptags(site.description[0].value) }
                 </Card.Description>
               </Card.Content>
               <Card.Content extra>
-                <a href={ `https://site${ index + 1 }.tipickly.com` } color="pink">
+                <span href={ `https://site${ index + 1 }.tipickly.com` }>
                   <Icon name="linkify" />
                   https://site{ index + 1 }.tipickly.com
-                </a>
+                </span>
               </Card.Content>
             </Card>
           )
@@ -66,4 +66,8 @@ const mapStateToProps = state => {
   }
 };
 
-export default connect(mapStateToProps)(SitesView);
+const mapDispatchToProps = dispatch => ({
+  updateSiteId: siteId => dispatch(updateSiteId(siteId)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SitesView);

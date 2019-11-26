@@ -6,22 +6,21 @@ import { Menu } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { changeActiveMenuItem } from '../../actions/menuActions';
 
+// History.
+import history from '../../config/history';
+
 // Styles.
 import '../../styles/components/global/LeftMenu.scss';
 
 class LeftMenu extends Component {
-  componentDidMount() {
-    const { changeActiveMenuItem } = this.props;
-
-    // Changing the menu item on the redux store.
-    changeActiveMenuItem('info');
-  }
-
   handleMenuItemChange = (e, { name }) => {
     const { changeActiveMenuItem } = this.props;
 
     // Changing the menu item on the redux store.
     changeActiveMenuItem(name);
+
+    // Updating the URL.
+    history.push(`#${ name }`);
   }
 
   render() {
@@ -42,13 +41,6 @@ class LeftMenu extends Component {
           onClick={ this.handleMenuItemChange }
         >
           Status
-        </Menu.Item>
-        <Menu.Item
-          name="errors"
-          active={ activeMenuItem === "errors" }
-          onClick={ this.handleMenuItemChange }
-        >
-          Errors
         </Menu.Item>
         <Menu.Item
           name="domains"

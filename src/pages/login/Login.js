@@ -1,18 +1,18 @@
 // Global components.
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Form, Grid } from 'semantic-ui-react';
 
 // Custom components.
 import LoginForm from '../../components/forms/LoginForm';
 
+// URL paths.
+import { REGISTER } from '../../config/paths';
+
 // Styles.
 import '../../styles/pages/login/Login.scss';
 
 class Login extends Component {
-  responseLogin = response => {
-    console.log(response);
-  }
-
   render() {
     return (
       <Grid className="Login" container stackable>
@@ -26,7 +26,7 @@ class Login extends Component {
             <p>The registration is quick and free!</p>
             <Form>
               <Form.Field>
-                <Button type="submit" size="large" color="pink">Register</Button>
+                <Button as={ Link } to={ REGISTER } size="large" color="pink">Register</Button>
               </Form.Field>
             </Form>
           </Grid.Column>

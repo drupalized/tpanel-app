@@ -6,6 +6,12 @@ import { Form, Input } from 'semantic-ui-react';
 import '../../styles/components/global/Search.scss'
 
 class Search extends Component {
+  state = { searchString: '' };
+
+  handleInputChange = fieldName => e => {
+    this.setState({ [fieldName]: e.target.value.replace(/  +/g, ' ') });
+  };
+
   render() {
     return (
       <Form className="Search">
@@ -14,8 +20,10 @@ class Search extends Component {
             fluid
             list="sites"
             size="big"
+            value={ this.state.searchString }
             action={{ labelPosition: 'right', icon: 'search', content: 'Search' }}
             placeholder="Search for a website..."
+            onChange={ this.handleInputChange('searchString') }
           />
           <datalist id="sites">
             <option value="Site 1" />

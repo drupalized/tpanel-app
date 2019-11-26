@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import { Button, Container, Image, Menu } from 'semantic-ui-react';
 
 // URL paths.
-import { HOME, LOGIN } from '../../config/paths';
+import { HOME, LOGIN, REGISTER } from '../../config/paths';
 
 // Assets.
 import logo from '../../assets/logo.svg';
 
 // Styles.
-import '../../styles/components/global/Header.scss'
+import '../../styles/components/global/Header.scss';
 
 class Header extends Component {
   render() {
@@ -24,7 +24,7 @@ class Header extends Component {
             </Menu.Item>
             <Menu.Item position="right">
               <Button as={ Link } to={ LOGIN } color="pink">Log in</Button>
-              <Button className="App__header-signup" as="a" inverted>Sign Up</Button>
+              <Button as={ Link } to={ REGISTER } className="App__header-signup" inverted>Sign Up</Button>
             </Menu.Item>
           </Container>
         </Menu>
